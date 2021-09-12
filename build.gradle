@@ -9,7 +9,9 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
 
         // this is so i can use the plugin navigation-safeargs in another gradle file
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+        //2.3.5 failed
+        var nav_version = "2.4.0-alpha02"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
 
         //this to use hilt plugin
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
