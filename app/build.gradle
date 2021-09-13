@@ -2,10 +2,10 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'kotlin-android-extensions'             //used for data binding
+    //id 'kotlin-android-extensions'             //used for data binding
     //id 'android-extensions'                  //used for data binding
 
-    //id 'kotlin-parcelize'
+    id 'kotlin-parcelize'
     // should be used instead kotlin-android-extension
     // but failing on setupWithNavController method
 
@@ -38,8 +38,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     buildFeatures {
         viewBinding = true
+    }
+
+    //https://newbedev.com/kapt-build-fails-with-dagger-android-processor
+    //said itdidnt recognized processor hilt,dagger ??
+    kapt {
+        generateStubs = true
     }
 
     compileOptions {
